@@ -1,20 +1,9 @@
-/*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
-
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
-
 Ext.application({
     name: 'Pinch',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Pinch.view.ListCard'
     ],
 
     views: [
@@ -44,7 +33,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('Pinch.view.Main'));
+        Ext.Viewport.add(Ext.create('Pinch.view.ListCard'));
     },
 
     onUpdated: function() {
@@ -59,3 +48,15 @@ Ext.application({
         );
     }
 });
+
+//// Configure Loader paths
+//Ext.Loader.setConfig({
+//	enabled: true,
+//	paths: {
+//		"MyAppNamespace": "app",
+//		"Ext": "/path_to_touch_source/src"
+//	}
+//});
+
+//// Include dependent Sencha classes
+//Ext.syncRequire(["Ext.Component", "Ext.ComponentManager", "Ext.ComponentQuery"]);
