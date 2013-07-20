@@ -3,11 +3,18 @@ Ext.application({
 
     requires: [
         'Ext.MessageBox',
-        'Pinch.view.ListCard'
+        'Pinch.view.ListCard',
+        'Pinch.controller.Toolbar'
     ],
 
+    controllers: [
+        'Canvas',
+        'Toolbar'
+    ],
+    
     views: [
-        'Main'
+        'Main',
+        'Toolbar'
     ],
 
     icon: {
@@ -49,12 +56,46 @@ Ext.application({
     }
 });
 
-//// Configure Loader paths
+//Ext.define('Pinch.Application', {
+//    name: 'Pinch',
+//    extend: 'Deft.mvc.Application',
+
+//    requires: [],
+
+//    init: function () {     
+//        Deft.Injector.configure({});
+
+//        Ext.create('Pinch.view.ListCard');
+//    }
+//});
+//Ext.define('Pinch.Application', {
+//    name: 'Pinch',
+//    extend: 'Deft.mvc.Application',
+
+//    requires: [],
+
+//    init: function () {     
+//        //Deft.Injector.configure({
+//        //    eventBus: {
+//        //        fn: function () {
+//        //            return Ext.create('Ext.util.Observable');
+//        //        }
+//        //    },
+//        //});
+
+//        Ext.create('Pinch.view.ListCard');
+//    }
+//});
+
+//Ext.onReady(function() {
+//    Ext.create('Pinch.Application');
+//});
+
 //Ext.Loader.setConfig({
 //	enabled: true,
 //	paths: {
-//		"MyAppNamespace": "app",
-//		"Ext": "/path_to_touch_source/src"
+//		"Pinch": "app",
+//		"Ext": "../touch/src"
 //	}
 //});
 

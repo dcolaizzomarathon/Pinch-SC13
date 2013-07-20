@@ -2,6 +2,11 @@
     extend: 'Ext.Container',
     xtype: 'listcard',
 
+    requires: [
+        'Pinch.view.Canvas',
+        'Pinch.view.ChatList'
+    ],
+
     config: {
         layout: {
             type: 'hbox',
@@ -9,43 +14,58 @@
         },
         items: [
             {
-                xtype: 'container',
+                xtype: 'pinchcanvas',
                 itemId: 'canvasCtn',
-                html: 'Fullscreen test of whether or not it fills the screen',
-                flex: 2,
-                style: {
-                    backgroundColor: 'blue'
-                }
+                html: '<canvas id="canvasCtn"/>',
+                flex: 2
             },
         {
             xtype: 'container',
             flex: 1,
-            layout: 'vbox',
+            layout: {
+                type: 'vbox',
+                pack: 'center'
+            },
             items: [
                 {
-                xtype: 'togglefield',
-                name: 'awesome',
-                label: 'Users/Comments',
-            },
-                {
-                    xtype: 'userchatlist',
-                    flex: 1,
-                    style: {
-                        backgroundColor: 'yellow'
+                    xtype: 'segmentedbutton',
+                    items:[
+                        {
+                            text:'Chat',
+                            pressed: true
+                        },
+                        {
+                            text:'Users'
+                        }
+                    ],
+                    listeners: {
+                        toggle: function(container, button, pressed) {
+                            alert("User tried to view the '" + button.getText() + "' list.");
+                        }
                     }
                 },
-            
-        ]
+                {
+                    xtype: 'panel',
+                    layout: 'card',
+                    flex:1,
+                    items: [
+                        {
+                            xtype: 'chatlist',
+                        }
+                    ]
+                }
+            ]
         },
             {
                 docked: 'top',
                 xtype: 'toolbar',
                 title: 'Pinch',
-                items:[
+                items: [
                     {
                         xtype: 'button',
                         itemId: 'attachments',
                         iconCls: 'add',
+                        html: '<input type="file" id="fileInput" style="visibility:hidden;position:absolute;top:-50;left:-50"/>',
                         docked: 'right'
                     }
                 ]

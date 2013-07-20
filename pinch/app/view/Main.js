@@ -4,7 +4,7 @@ Ext.define('Pinch.view.Main', {
     
     requires: [
         'Ext.TitleBar',
-        'Pinch.view.UserChatList',
+        'Pinch.view.ChatList',
         'Pinch.view.ListCard'
     ],
     
